@@ -1,7 +1,7 @@
 // Joshua Boyce Hyland
 // ID: C00270197
 // Time started 22:03
-// Time finished
+// Time finished 22:40
 // Date: 02/1/21
 //----------------------------------------
 // Program will intake 8 numbers from users and give back largest, smallest, sum and average
@@ -22,7 +22,7 @@ void arrayCalculations()
 	int largest = 0; 
 	int smallest = 0; 
 	int sum = 0; 
-	double average = 0; 
+	int average = 0; 
 	int array[8]; 
 
 	std::cout << "Please enter 8 numbers" << std::endl; 
