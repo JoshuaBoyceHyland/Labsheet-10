@@ -5,7 +5,8 @@
 // Date 03/01/22
 //-----------------------------
 // Program will store already set names and health for players, it will calculate the sum. average, display the players names and health, display the names and health in reverse order, find the highest and lowest health
-// No known bugs 
+//----------------------------- 
+//No known bugs 
 
 #include <iostream>
 #include <string>
