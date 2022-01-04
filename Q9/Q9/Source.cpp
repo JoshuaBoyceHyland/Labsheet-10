@@ -5,7 +5,7 @@
 // Date 03/01/22
 //-----------------------------
 // Program will store already set names and health for players, it will calculate the sum. average, display the players names and health, display the names and health in reverse order, find the highest and lowest health
-// allows user to input a name and be given back the last same name in the arrays position 
+// allows user to input a name and be given back the last occurence of the same name in the array 
 // ----------------------------- 
 //No known bugs 
 
@@ -159,7 +159,7 @@ void findLowestHealth() // finds and displays the first lowest health player
 	std::cout << "Player: " << namesArray[smallest] << "    Health:" << healthArray[smallest] << std::endl;
 }
 
-int findLastName(std::string t_aName)
+int findLastName(std::string t_aName)// takes input from main and finds the names last occurence in the array 
 {
 	std::string lastName = ""; 
 	int position = 0; 
