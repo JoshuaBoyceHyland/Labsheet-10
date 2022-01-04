@@ -25,7 +25,7 @@ void findLowestHealth();
 int main()
 {
 	int sum = 0; 
-	double average = 0; 
+	int average = 0; 
 
 	intitializeArrays(); 
 

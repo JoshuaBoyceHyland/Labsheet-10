@@ -1,11 +1,11 @@
 // Joshua Boyce Hyland
 // ID: C00270917
-// Time started 22:47
-// Time finished 22:58
+// Time started 23:20
+// Time finished 
 // Date 03/01/22
 //-----------------------------
-// Program will store already set names and health for players, it will calculate the sum. average, display the players names and health, display the names and health in reverse order, find the highest and lowest health 
-// will allow user to find the first position of a health value in the array
+// Program will store already set names and health for players, it will calculate the sum. average, display the players names and health, display the names and health in reverse order, find the highest and lowest health
+// allow user to input a number and who ever has has the health will be displayed 
 //----------------------------- 
 //No known bugs 
 
@@ -22,13 +22,15 @@ void displayPlayers();
 void displayReversePlayers();
 void findHighestHealth();
 void findLowestHealth();
-int findFirstHealthValue(int t_aValue);
+void findAllHealthValue(int t_aValue); 
 
 int main()
 {
 	int sum = 0;
-	 int average = 0;
+	int average = 0;
 	int aValue = 0; 
+
+
 	intitializeArrays();
 
 	sum = calculateSum();
@@ -42,11 +44,9 @@ int main()
 	findHighestHealth();
 	findLowestHealth();
 
-	std::cout << "Please enter a health value" << std::endl; 
+	std::cout << " Please enter a health value" << std::endl; 
 	std::cin >> aValue; 
-
-	findFirstHealthValue(aValue);
-
+	findAllHealthValue(aValue); 
 	return 1;
 }
 
@@ -141,7 +141,7 @@ void findLowestHealth() // finds and displays the first lowest health player
 	int smallestHealth = 0;
 
 	std::cout << std::endl;
-	std::cout << "Lowest health player" << std::endl;
+	std::cout << " Lowest health player" << std::endl;
 
 	for (int index = 0; index <= 7; index++)
 	{
@@ -160,18 +160,21 @@ void findLowestHealth() // finds and displays the first lowest health player
 	std::cout << "Player: " << namesArray[smallest] << "    Health:" << healthArray[smallest] << std::endl;
 }
 
-int findFirstHealthValue(int t_aValue)// will find position of health value in the array
+void findAllHealthValue(int t_aValue)
 {
+	bool inArray = false; 
+
 	for (int index = 0; index <= 7; index++)
 	{
-		if (healthArray[index] == t_aValue)
+		if (t_aValue == healthArray[index])
 		{
-			std::cout << "Health value" << t_aValue << " found at index position " << index << " in the array" << std::endl; 
-			return 1; 
+			std::cout << namesArray[index] << std::endl;
+			inArray = true; 
 		}
 	}
+	if(inArray == false)
+		{
+			std::cout << "No player found with that health value" << std::endl; 
+		}
 
-	std::cout << "Health value " << t_aValue << " is not found in the array" << std::endl; 
-
-	return -1;
 }

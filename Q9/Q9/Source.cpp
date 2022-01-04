@@ -1,12 +1,12 @@
 // Joshua Boyce Hyland
 // ID: C00270917
-// Time started 22:47
-// Time finished 22:58
+// Time started 23:35
+// Time finished 00:05
 // Date 03/01/22
 //-----------------------------
-// Program will store already set names and health for players, it will calculate the sum. average, display the players names and health, display the names and health in reverse order, find the highest and lowest health 
-// will allow user to find the first position of a health value in the array
-//----------------------------- 
+// Program will store already set names and health for players, it will calculate the sum. average, display the players names and health, display the names and health in reverse order, find the highest and lowest health
+// allows user to input a name and be given back the last same name in the arrays position 
+// ----------------------------- 
 //No known bugs 
 
 #include <iostream>
@@ -22,13 +22,13 @@ void displayPlayers();
 void displayReversePlayers();
 void findHighestHealth();
 void findLowestHealth();
-int findFirstHealthValue(int t_aValue);
+int findLastName(std::string t_aName);
 
 int main()
 {
 	int sum = 0;
-	 int average = 0;
-	int aValue = 0; 
+	int average = 0;
+	std::string aName = ""; 
 	intitializeArrays();
 
 	sum = calculateSum();
@@ -42,10 +42,9 @@ int main()
 	findHighestHealth();
 	findLowestHealth();
 
-	std::cout << "Please enter a health value" << std::endl; 
-	std::cin >> aValue; 
-
-	findFirstHealthValue(aValue);
+	std::cout << "Please enter a name: "; 
+	std::cin >> aName; 
+	findLastName(aName); 
 
 	return 1;
 }
@@ -61,7 +60,7 @@ void intitializeArrays()// initiliazes the two arrays
 	namesArray[4] = "Joe";
 	namesArray[5] = "Ray";
 	namesArray[6] = "Dave";
-	namesArray[7] = "Sue";
+	namesArray[7] = "Tom";
 
 	healthArray[0] = 3;
 	healthArray[1] = 6;
@@ -141,7 +140,7 @@ void findLowestHealth() // finds and displays the first lowest health player
 	int smallestHealth = 0;
 
 	std::cout << std::endl;
-	std::cout << "Lowest health player" << std::endl;
+	std::cout << " Lowest health player" << std::endl;
 
 	for (int index = 0; index <= 7; index++)
 	{
@@ -160,18 +159,28 @@ void findLowestHealth() // finds and displays the first lowest health player
 	std::cout << "Player: " << namesArray[smallest] << "    Health:" << healthArray[smallest] << std::endl;
 }
 
-int findFirstHealthValue(int t_aValue)// will find position of health value in the array
+int findLastName(std::string t_aName)
 {
+	std::string lastName = ""; 
+	int position = 0; 
 	for (int index = 0; index <= 7; index++)
 	{
-		if (healthArray[index] == t_aValue)
+		if (t_aName == namesArray[index])
 		{
-			std::cout << "Health value" << t_aValue << " found at index position " << index << " in the array" << std::endl; 
-			return 1; 
+			lastName = namesArray[index]; 
+			position = index; 
 		}
 	}
 
-	std::cout << "Health value " << t_aValue << " is not found in the array" << std::endl; 
+	if (lastName == "")
+	{
+		std::cout<<"Name " << t_aName << " is not in this array" << std::endl;
+		return -1; 
+	}
 
-	return -1;
+	else
+	{
+		std::cout << "Name " << t_aName << " found at index position " << position << " in the array" << std::endl; 
+	}
+	return 1;
 }
