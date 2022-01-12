@@ -16,7 +16,7 @@ const int MAX_PLAYERS = 8;
 std::string namesArray[MAX_PLAYERS];
 int healthArray[MAX_PLAYERS];
 int calculateSum();
-int calculateAvg(int t_sum);
+float calculateAvg(float t_sum);
 void intitializeArrays();
 void displayPlayers();
 void displayReversePlayers();
@@ -27,7 +27,7 @@ void findAllHealthValue(int t_aValue);
 int main()
 {
 	int sum = 0;
-	int average = 0;
+	float average = 0;
 	int aValue = 0; 
 
 
@@ -78,19 +78,19 @@ int calculateSum()// find sum of all players health
 {
 	int sum = 0;
 
-	for (int index = 0; index <= 7; index++)
+	for (int index = 0; index < MAX_PLAYERS; index++)
 	{
-		sum = sum + healthArray[index];
+		sum = sum + healthArray[index];// sum
 	}
 
 	return sum;
 }
 
-int calculateAvg(int t_sum)// finds average of all players health
+float calculateAvg(float t_sum)// finds average of all players health
 {
-	int average = 0;
+	float average = 0.0;
 
-	average = t_sum / MAX_PLAYERS;
+	average = t_sum / MAX_PLAYERS;// average
 
 	return average;
 }
@@ -99,7 +99,7 @@ void displayPlayers()
 	std::cout << std::endl;
 	std::cout << "Players" << std::endl;
 
-	for (int index = 0; index <= 7; index++)
+	for (int index = 0; index < MAX_PLAYERS; index++)
 	{
 		std::cout << "Player: " << namesArray[index] << "    Health:" << healthArray[index] << std::endl;
 	}
@@ -110,7 +110,7 @@ void displayReversePlayers()// displays players name in reverse
 	std::cout << std::endl;
 	std::cout << "Players reversed" << std::endl;
 
-	for (int index = 7; index >= 0; index--)
+	for (int index = MAX_PLAYERS - 1; index >= 0; index--)// display 
 	{
 		std::cout << "Player: " << namesArray[index] << "    Health:" << healthArray[index] << std::endl;
 	}
@@ -124,9 +124,9 @@ void findHighestHealth()// finda and displays last player with the highest healt
 	std::cout << std::endl;
 	std::cout << "Highest health Player" << std::endl;
 
-	for (int index = 0; index <= 7; index++)
+	for (int index = 0; index < MAX_PLAYERS; index++)
 	{
-		if (highestHealth <= healthArray[index])
+		if (highestHealth <= healthArray[index])// finds the last highest number
 		{
 			highest = index;
 		}
@@ -141,16 +141,16 @@ void findLowestHealth() // finds and displays the first lowest health player
 	int smallestHealth = 0;
 
 	std::cout << std::endl;
-	std::cout << " Lowest health player" << std::endl;
+	std::cout << "Lowest health player" << std::endl;
 
-	for (int index = 0; index <= 7; index++)
+	for (int index = 0; index < MAX_PLAYERS; index++)
 	{
 		if (index == 0)
 		{
-			smallestHealth = healthArray[index];
+			smallestHealth = healthArray[index];// assigns first number as a point of comparision to find the lowest number
 		}
 
-		if (smallestHealth > healthArray[index])
+		if (smallestHealth > healthArray[index])// finds lowest number
 		{
 			smallest = index;
 		}
@@ -160,19 +160,20 @@ void findLowestHealth() // finds and displays the first lowest health player
 	std::cout << "Player: " << namesArray[smallest] << "    Health:" << healthArray[smallest] << std::endl;
 }
 
+
 void findAllHealthValue(int t_aValue)
 {
-	bool inArray = false; 
+	bool inArray = false;// bool to activate error message 
 
-	for (int index = 0; index <= 7; index++)
+	for (int index = 0; index < MAX_PLAYERS; index++)
 	{
-		if (t_aValue == healthArray[index])
+		if (t_aValue == healthArray[index])// finding value
 		{
 			std::cout << namesArray[index] << std::endl;
 			inArray = true; 
 		}
 	}
-	if(inArray == false)
+	if(inArray == false)// error for if value not found
 		{
 			std::cout << "No player found with that health value" << std::endl; 
 		}
