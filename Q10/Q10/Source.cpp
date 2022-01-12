@@ -170,7 +170,7 @@ std::string findPlayerHealth(std::string t_aName)// will take input from main an
 
 	for (int index = 0; index <= 7; index++)
 	{
-		if (t_aName == namesArray[index])
+		if (t_aName == namesArray[index])// finds the last occurence of the name 
 		{
 			position = index; 
 			found = true; 
@@ -179,11 +179,11 @@ std::string findPlayerHealth(std::string t_aName)// will take input from main an
 	}
 
 	
-	if (found == true)
+	if (found == true) //
 	{
 		aMessage = "Players " + t_aName + " has a health of " +std::to_string (healthArray[position]); 
 	}
-	else
+	else // message where there is no player with that name  
 	{
 		aMessage = "There is no player called " + t_aName + " in the game"; 
 	}
